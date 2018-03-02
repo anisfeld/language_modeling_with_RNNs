@@ -8,8 +8,9 @@
 #SBATCH --ntasks-per-node=4
 
 module load python/3.6.1+intel-16.0
-cd /home/anisfeld/scratch-midway/nets
+/home/anisfeld/dl2018_final_project
 source dlproj/bin/activate
+cd /home/anisfeld/scratch-midway/nets
 
 python main.py --save m_lstm_00.pt > dlstm_00.out
 python main.py --bptt 8 --save m_lstm_01.pt >> dlstm_00.out
