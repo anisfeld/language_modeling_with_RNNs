@@ -1,0 +1,51 @@
+Namespace(batch_size=64, bptt=8, bptt_multiplier=1, clip=0.25, data='./data/ptb', dropout=0.2, emsize=100, epochs=1, log_interval=200, lr=20, model='LSTM', nhid=128, nlayers=1, save='m_lstm_14.pt', seed=1111, tied=False)
+| epoch   1 |   200/ 1815 batches | lr 20.00 | ms/batch 323.73 | loss  6.83 | perplexity   923.24
+| epoch   1 |   400/ 1815 batches | lr 20.00 | ms/batch 321.18 | loss  6.15 | perplexity   469.61
+| epoch   1 |   600/ 1815 batches | lr 20.00 | ms/batch 317.77 | loss  5.83 | perplexity   341.21
+| epoch   1 |   800/ 1815 batches | lr 20.00 | ms/batch 317.37 | loss  5.60 | perplexity   271.01
+| epoch   1 |  1000/ 1815 batches | lr 20.00 | ms/batch 315.60 | loss  5.60 | perplexity   271.32
+| epoch   1 |  1200/ 1815 batches | lr 20.00 | ms/batch 320.09 | loss  5.53 | perplexity   251.28
+| epoch   1 |  1400/ 1815 batches | lr 20.00 | ms/batch 320.37 | loss  5.42 | perplexity   225.90
+| epoch   1 |  1600/ 1815 batches | lr 20.00 | ms/batch 321.25 | loss  5.41 | perplexity   224.00
+| epoch   1 |  1800/ 1815 batches | lr 20.00 | ms/batch 317.00 | loss  5.33 | perplexity   207.07
+-----------------------------------------------------------------------------------------
+| end of epoch   1 | time: 599.04s | valid loss  5.30 | valid perplexity   200.13
+-----------------------------------------------------------------------------------------
+| end of all epochs | time: 599.10s | valid loss  5.30 | valid perplexity   200.13
+=========================================================================================
+| End of training | test loss  5.27 | test perplexity   194.44
+=========================================================================================
+Namespace(batch_size=64, bptt=16, bptt_multiplier=1, clip=0.25, data='./data/ptb', dropout=0.2, emsize=100, epochs=1, log_interval=200, lr=20, model='LSTM', nhid=128, nlayers=1, save='m_lstm_15.pt', seed=1111, tied=False)
+| epoch   1 |   200/  907 batches | lr 20.00 | ms/batch 659.34 | loss  6.84 | perplexity   937.66
+| epoch   1 |   400/  907 batches | lr 20.00 | ms/batch 653.20 | loss  6.08 | perplexity   434.85
+| epoch   1 |   600/  907 batches | lr 20.00 | ms/batch 655.64 | loss  5.83 | perplexity   341.43
+| epoch   1 |   800/  907 batches | lr 20.00 | ms/batch 661.05 | loss  5.63 | perplexity   279.70
+-----------------------------------------------------------------------------------------
+| end of epoch   1 | time: 615.87s | valid loss  5.45 | valid perplexity   232.40
+-----------------------------------------------------------------------------------------
+| end of all epochs | time: 615.93s | valid loss  5.45 | valid perplexity   232.40
+=========================================================================================
+| End of training | test loss  5.42 | test perplexity   226.21
+=========================================================================================
+Namespace(batch_size=128, bptt=8, bptt_multiplier=1, clip=0.25, data='./data/ptb', dropout=0.2, emsize=100, epochs=1, log_interval=200, lr=20, model='LSTM', nhid=128, nlayers=1, save='m_lstm_16.pt', seed=1111, tied=False)
+| epoch   1 |   200/  907 batches | lr 20.00 | ms/batch 662.08 | loss  6.83 | perplexity   922.16
+| epoch   1 |   400/  907 batches | lr 20.00 | ms/batch 655.49 | loss  6.13 | perplexity   457.85
+| epoch   1 |   600/  907 batches | lr 20.00 | ms/batch 655.93 | loss  5.80 | perplexity   329.64
+| epoch   1 |   800/  907 batches | lr 20.00 | ms/batch 659.77 | loss  5.60 | perplexity   271.18
+-----------------------------------------------------------------------------------------
+| end of epoch   1 | time: 617.72s | valid loss  5.57 | valid perplexity   263.57
+-----------------------------------------------------------------------------------------
+| end of all epochs | time: 617.80s | valid loss  5.57 | valid perplexity   263.57
+=========================================================================================
+| End of training | test loss  5.54 | test perplexity   255.20
+=========================================================================================
+Namespace(batch_size=128, bptt=16, bptt_multiplier=1, clip=0.25, data='./data/ptb', dropout=0.2, emsize=100, epochs=1, log_interval=200, lr=20, model='LSTM', nhid=128, nlayers=1, save='m_lstm_17.pt', seed=1111, tied=False)
+| epoch   1 |   200/  453 batches | lr 20.00 | ms/batch 1342.35 | loss  6.83 | perplexity   924.99
+| epoch   1 |   400/  453 batches | lr 20.00 | ms/batch 1331.58 | loss  6.08 | perplexity   439.15
+-----------------------------------------------------------------------------------------
+| end of epoch   1 | time: 623.95s | valid loss  5.72 | valid perplexity   304.78
+-----------------------------------------------------------------------------------------
+| end of all epochs | time: 624.05s | valid loss  5.72 | valid perplexity   304.78
+=========================================================================================
+| End of training | test loss  5.70 | test perplexity   298.31
+=========================================================================================
