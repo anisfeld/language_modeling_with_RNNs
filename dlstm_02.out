@@ -1,0 +1,293 @@
+3/1 group 1
+dropout test
+Namespace(batch_size=32, bptt=8, bptt_multiplier=2, clip=0.25, data='./data/ptb', dropout=0.0, emsize=100, epochs=4, log_interval=200, lr=20, model='LSTM', nhid=128, nlayers=1, save='model.pt', seed=1111, tied=False)
+bptt is:  8
+| epoch   1 |   200/ 3631 batches | lr 20.00 | ms/batch 173.30 | loss  6.89 | perplexity   984.02
+| epoch   1 |   400/ 3631 batches | lr 20.00 | ms/batch 172.56 | loss  6.19 | perplexity   486.30
+| epoch   1 |   600/ 3631 batches | lr 20.00 | ms/batch 171.84 | loss  5.91 | perplexity   369.17
+| epoch   1 |   800/ 3631 batches | lr 20.00 | ms/batch 171.80 | loss  5.66 | perplexity   286.76
+| epoch   1 |  1000/ 3631 batches | lr 20.00 | ms/batch 202.71 | loss  5.66 | perplexity   288.03
+| epoch   1 |  1200/ 3631 batches | lr 20.00 | ms/batch 262.70 | loss  5.59 | perplexity   266.86
+| epoch   1 |  1400/ 3631 batches | lr 20.00 | ms/batch 215.01 | loss  5.48 | perplexity   241.05
+| epoch   1 |  1600/ 3631 batches | lr 20.00 | ms/batch 262.68 | loss  5.47 | perplexity   236.55
+| epoch   1 |  1800/ 3631 batches | lr 20.00 | ms/batch 272.69 | loss  5.32 | perplexity   204.31
+| epoch   1 |  2000/ 3631 batches | lr 20.00 | ms/batch 274.48 | loss  5.29 | perplexity   198.78
+| epoch   1 |  2200/ 3631 batches | lr 20.00 | ms/batch 256.84 | loss  5.34 | perplexity   208.68
+| epoch   1 |  2400/ 3631 batches | lr 20.00 | ms/batch 249.58 | loss  5.22 | perplexity   184.76
+| epoch   1 |  2600/ 3631 batches | lr 20.00 | ms/batch 276.18 | loss  5.10 | perplexity   164.53
+| epoch   1 |  2800/ 3631 batches | lr 20.00 | ms/batch 275.42 | loss  5.21 | perplexity   182.26
+| epoch   1 |  3000/ 3631 batches | lr 20.00 | ms/batch 256.42 | loss  5.20 | perplexity   180.95
+| epoch   1 |  3200/ 3631 batches | lr 20.00 | ms/batch 271.27 | loss  5.11 | perplexity   166.49
+| epoch   1 |  3400/ 3631 batches | lr 20.00 | ms/batch 273.52 | loss  5.18 | perplexity   177.36
+| epoch   1 |  3600/ 3631 batches | lr 20.00 | ms/batch 273.60 | loss  5.20 | perplexity   180.89
+-----------------------------------------------------------------------------------------
+| end of epoch   1 | time: 901.58s | valid loss  5.22 | valid perplexity   185.18
+-----------------------------------------------------------------------------------------
+bptt is:  16
+| epoch   2 |   200/ 1815 batches | lr 20.00 | ms/batch 433.81 | loss  5.11 | perplexity   165.70
+| epoch   2 |   400/ 1815 batches | lr 20.00 | ms/batch 324.97 | loss  4.92 | perplexity   137.24
+| epoch   2 |   600/ 1815 batches | lr 20.00 | ms/batch 325.43 | loss  4.97 | perplexity   143.48
+| epoch   2 |   800/ 1815 batches | lr 20.00 | ms/batch 325.60 | loss  4.92 | perplexity   136.79
+| epoch   2 |  1000/ 1815 batches | lr 20.00 | ms/batch 326.16 | loss  4.77 | perplexity   118.00
+| epoch   2 |  1200/ 1815 batches | lr 20.00 | ms/batch 326.69 | loss  4.80 | perplexity   121.09
+| epoch   2 |  1400/ 1815 batches | lr 20.00 | ms/batch 329.02 | loss  4.67 | perplexity   106.58
+| epoch   2 |  1600/ 1815 batches | lr 20.00 | ms/batch 326.45 | loss  4.72 | perplexity   112.06
+| epoch   2 |  1800/ 1815 batches | lr 20.00 | ms/batch 326.79 | loss  4.77 | perplexity   118.08
+-----------------------------------------------------------------------------------------
+| end of epoch   2 | time: 633.03s | valid loss  5.01 | valid perplexity   150.04
+-----------------------------------------------------------------------------------------
+bptt is:  32
+| epoch   3 |   200/  907 batches | lr 20.00 | ms/batch 683.70 | loss  4.75 | perplexity   115.32
+| epoch   3 |   400/  907 batches | lr 20.00 | ms/batch 683.12 | loss  4.69 | perplexity   108.52
+| epoch   3 |   600/  907 batches | lr 20.00 | ms/batch 681.53 | loss  4.53 | perplexity    93.10
+| epoch   3 |   800/  907 batches | lr 20.00 | ms/batch 682.42 | loss  4.43 | perplexity    84.32
+-----------------------------------------------------------------------------------------
+| end of epoch   3 | time: 637.62s | valid loss  4.90 | valid perplexity   133.81
+-----------------------------------------------------------------------------------------
+bptt is:  64
+| epoch   4 |   200/  453 batches | lr 20.00 | ms/batch 1352.50 | loss  4.57 | perplexity    97.02
+| epoch   4 |   400/  453 batches | lr 20.00 | ms/batch 1342.76 | loss  4.33 | perplexity    75.83
+-----------------------------------------------------------------------------------------
+| end of epoch   4 | time: 628.23s | valid loss  4.85 | valid perplexity   127.65
+-----------------------------------------------------------------------------------------
+=========================================================================================
+| End of training | training time: 2800.82s |test loss  4.81 | test perplexity   122.79
+=========================================================================================
+Namespace(batch_size=32, bptt=8, bptt_multiplier=2, clip=0.25, data='./data/ptb', dropout=0.4, emsize=100, epochs=4, log_interval=200, lr=20, model='LSTM', nhid=128, nlayers=1, save='model.pt', seed=1111, tied=False)
+bptt is:  8
+| epoch   1 |   200/ 3631 batches | lr 20.00 | ms/batch 171.86 | loss  6.90 | perplexity   992.98
+| epoch   1 |   400/ 3631 batches | lr 20.00 | ms/batch 171.47 | loss  6.23 | perplexity   508.46
+| epoch   1 |   600/ 3631 batches | lr 20.00 | ms/batch 171.92 | loss  6.02 | perplexity   413.18
+| epoch   1 |   800/ 3631 batches | lr 20.00 | ms/batch 170.72 | loss  5.82 | perplexity   338.56
+| epoch   1 |  1000/ 3631 batches | lr 20.00 | ms/batch 167.71 | loss  5.85 | perplexity   348.81
+| epoch   1 |  1200/ 3631 batches | lr 20.00 | ms/batch 172.47 | loss  5.79 | perplexity   325.96
+| epoch   1 |  1400/ 3631 batches | lr 20.00 | ms/batch 169.07 | loss  5.71 | perplexity   301.39
+| epoch   1 |  1600/ 3631 batches | lr 20.00 | ms/batch 169.82 | loss  5.69 | perplexity   296.95
+| epoch   1 |  1800/ 3631 batches | lr 20.00 | ms/batch 169.77 | loss  5.57 | perplexity   262.32
+| epoch   1 |  2000/ 3631 batches | lr 20.00 | ms/batch 169.36 | loss  5.57 | perplexity   263.19
+| epoch   1 |  2200/ 3631 batches | lr 20.00 | ms/batch 173.16 | loss  5.62 | perplexity   275.70
+| epoch   1 |  2400/ 3631 batches | lr 20.00 | ms/batch 172.10 | loss  5.51 | perplexity   247.04
+| epoch   1 |  2600/ 3631 batches | lr 20.00 | ms/batch 172.90 | loss  5.43 | perplexity   228.08
+| epoch   1 |  2800/ 3631 batches | lr 20.00 | ms/batch 176.49 | loss  5.52 | perplexity   250.31
+| epoch   1 |  3000/ 3631 batches | lr 20.00 | ms/batch 173.35 | loss  5.53 | perplexity   252.46
+| epoch   1 |  3200/ 3631 batches | lr 20.00 | ms/batch 170.24 | loss  5.45 | perplexity   232.77
+| epoch   1 |  3400/ 3631 batches | lr 20.00 | ms/batch 171.59 | loss  5.52 | perplexity   249.12
+| epoch   1 |  3600/ 3631 batches | lr 20.00 | ms/batch 172.13 | loss  5.54 | perplexity   253.83
+-----------------------------------------------------------------------------------------
+| end of epoch   1 | time: 642.35s | valid loss  5.34 | valid perplexity   208.19
+-----------------------------------------------------------------------------------------
+bptt is:  16
+| epoch   2 |   200/ 1815 batches | lr 20.00 | ms/batch 328.32 | loss  5.47 | perplexity   237.45
+| epoch   2 |   400/ 1815 batches | lr 20.00 | ms/batch 328.71 | loss  5.31 | perplexity   202.08
+| epoch   2 |   600/ 1815 batches | lr 20.00 | ms/batch 328.18 | loss  5.36 | perplexity   212.33
+| epoch   2 |   800/ 1815 batches | lr 20.00 | ms/batch 329.25 | loss  5.32 | perplexity   203.73
+| epoch   2 |  1000/ 1815 batches | lr 20.00 | ms/batch 329.44 | loss  5.21 | perplexity   183.44
+| epoch   2 |  1200/ 1815 batches | lr 20.00 | ms/batch 326.69 | loss  5.24 | perplexity   189.10
+| epoch   2 |  1400/ 1815 batches | lr 20.00 | ms/batch 324.89 | loss  5.16 | perplexity   174.81
+| epoch   2 |  1600/ 1815 batches | lr 20.00 | ms/batch 323.18 | loss  5.20 | perplexity   181.78
+| epoch   2 |  1800/ 1815 batches | lr 20.00 | ms/batch 318.41 | loss  5.25 | perplexity   191.00
+-----------------------------------------------------------------------------------------
+| end of epoch   2 | time: 610.80s | valid loss  5.12 | valid perplexity   168.17
+-----------------------------------------------------------------------------------------
+bptt is:  32
+| epoch   3 |   200/  907 batches | lr 20.00 | ms/batch 662.60 | loss  5.21 | perplexity   182.79
+| epoch   3 |   400/  907 batches | lr 20.00 | ms/batch 661.72 | loss  5.17 | perplexity   175.56
+| epoch   3 |   600/  907 batches | lr 20.00 | ms/batch 660.54 | loss  5.06 | perplexity   157.44
+| epoch   3 |   800/  907 batches | lr 20.00 | ms/batch 662.11 | loss  5.01 | perplexity   150.38
+-----------------------------------------------------------------------------------------
+| end of epoch   3 | time: 618.55s | valid loss  5.00 | valid perplexity   149.06
+-----------------------------------------------------------------------------------------
+bptt is:  64
+| epoch   4 |   200/  453 batches | lr 20.00 | ms/batch 1316.49 | loss  5.10 | perplexity   164.12
+| epoch   4 |   400/  453 batches | lr 20.00 | ms/batch 1342.94 | loss  4.94 | perplexity   140.18
+-----------------------------------------------------------------------------------------
+| end of epoch   4 | time: 620.95s | valid loss  4.94 | valid perplexity   140.20
+-----------------------------------------------------------------------------------------
+=========================================================================================
+| End of training | training time: 2492.92s |test loss  4.90 | test perplexity   134.56
+=========================================================================================
+Namespace(batch_size=32, bptt=8, bptt_multiplier=2, clip=0.25, data='./data/ptb', dropout=0.6, emsize=100, epochs=4, log_interval=200, lr=20, model='LSTM', nhid=128, nlayers=1, save='model.pt', seed=1111, tied=False)
+bptt is:  8
+| epoch   1 |   200/ 3631 batches | lr 20.00 | ms/batch 174.22 | loss  6.91 | perplexity  1004.74
+| epoch   1 |   400/ 3631 batches | lr 20.00 | ms/batch 170.43 | loss  6.29 | perplexity   536.76
+| epoch   1 |   600/ 3631 batches | lr 20.00 | ms/batch 169.81 | loss  6.13 | perplexity   460.14
+| epoch   1 |   800/ 3631 batches | lr 20.00 | ms/batch 173.51 | loss  5.98 | perplexity   397.01
+| epoch   1 |  1000/ 3631 batches | lr 20.00 | ms/batch 171.98 | loss  6.02 | perplexity   412.99
+| epoch   1 |  1200/ 3631 batches | lr 20.00 | ms/batch 171.83 | loss  5.98 | perplexity   395.93
+| epoch   1 |  1400/ 3631 batches | lr 20.00 | ms/batch 172.48 | loss  5.92 | perplexity   371.03
+| epoch   1 |  1600/ 3631 batches | lr 20.00 | ms/batch 169.22 | loss  5.91 | perplexity   368.55
+| epoch   1 |  1800/ 3631 batches | lr 20.00 | ms/batch 169.11 | loss  5.81 | perplexity   332.68
+| epoch   1 |  2000/ 3631 batches | lr 20.00 | ms/batch 170.17 | loss  5.82 | perplexity   337.40
+| epoch   1 |  2200/ 3631 batches | lr 20.00 | ms/batch 167.57 | loss  5.87 | perplexity   354.58
+| epoch   1 |  2400/ 3631 batches | lr 20.00 | ms/batch 170.61 | loss  5.78 | perplexity   324.17
+| epoch   1 |  2600/ 3631 batches | lr 20.00 | ms/batch 171.83 | loss  5.73 | perplexity   307.40
+| epoch   1 |  2800/ 3631 batches | lr 20.00 | ms/batch 172.64 | loss  5.80 | perplexity   331.52
+| epoch   1 |  3000/ 3631 batches | lr 20.00 | ms/batch 168.90 | loss  5.82 | perplexity   337.88
+| epoch   1 |  3200/ 3631 batches | lr 20.00 | ms/batch 168.42 | loss  5.75 | perplexity   314.64
+| epoch   1 |  3400/ 3631 batches | lr 20.00 | ms/batch 167.54 | loss  5.81 | perplexity   334.72
+| epoch   1 |  3600/ 3631 batches | lr 20.00 | ms/batch 169.04 | loss  5.83 | perplexity   340.63
+-----------------------------------------------------------------------------------------
+| end of epoch   1 | time: 639.30s | valid loss  5.55 | valid perplexity   257.74
+-----------------------------------------------------------------------------------------
+bptt is:  16
+| epoch   2 |   200/ 1815 batches | lr 20.00 | ms/batch 327.96 | loss  5.78 | perplexity   324.18
+| epoch   2 |   400/ 1815 batches | lr 20.00 | ms/batch 321.13 | loss  5.64 | perplexity   281.77
+| epoch   2 |   600/ 1815 batches | lr 20.00 | ms/batch 320.28 | loss  5.69 | perplexity   297.27
+| epoch   2 |   800/ 1815 batches | lr 20.00 | ms/batch 319.14 | loss  5.65 | perplexity   284.55
+| epoch   2 |  1000/ 1815 batches | lr 20.00 | ms/batch 321.57 | loss  5.57 | perplexity   261.73
+| epoch   2 |  1200/ 1815 batches | lr 20.00 | ms/batch 319.32 | loss  5.59 | perplexity   268.27
+| epoch   2 |  1400/ 1815 batches | lr 20.00 | ms/batch 320.87 | loss  5.54 | perplexity   253.49
+| epoch   2 |  1600/ 1815 batches | lr 20.00 | ms/batch 320.54 | loss  5.56 | perplexity   261.06
+| epoch   2 |  1800/ 1815 batches | lr 20.00 | ms/batch 322.14 | loss  5.61 | perplexity   272.49
+-----------------------------------------------------------------------------------------
+| end of epoch   2 | time: 602.28s | valid loss  5.35 | valid perplexity   210.15
+-----------------------------------------------------------------------------------------
+bptt is:  32
+| epoch   3 |   200/  907 batches | lr 20.00 | ms/batch 662.09 | loss  5.55 | perplexity   258.02
+| epoch   3 |   400/  907 batches | lr 20.00 | ms/batch 656.52 | loss  5.51 | perplexity   248.08
+| epoch   3 |   600/  907 batches | lr 20.00 | ms/batch 665.00 | loss  5.43 | perplexity   227.34
+| epoch   3 |   800/  907 batches | lr 20.00 | ms/batch 663.41 | loss  5.39 | perplexity   219.78
+-----------------------------------------------------------------------------------------
+| end of epoch   3 | time: 618.45s | valid loss  5.23 | valid perplexity   187.43
+-----------------------------------------------------------------------------------------
+bptt is:  64
+| epoch   4 |   200/  453 batches | lr 20.00 | ms/batch 1310.70 | loss  5.45 | perplexity   232.62
+| epoch   4 |   400/  453 batches | lr 20.00 | ms/batch 1308.09 | loss  5.32 | perplexity   205.37
+-----------------------------------------------------------------------------------------
+| end of epoch   4 | time: 610.73s | valid loss  5.18 | valid perplexity   177.91
+-----------------------------------------------------------------------------------------
+=========================================================================================
+| End of training | training time: 2471.04s |test loss  5.14 | test perplexity   170.58
+=========================================================================================
+2 rounders
+Namespace(batch_size=32, bptt=8, bptt_multiplier=1, clip=0.25, data='./data/ptb', dropout=0.2, emsize=256, epochs=2, log_interval=200, lr=20, model='LSTM', nhid=256, nlayers=1, save='model.pt', seed=1111, tied=True)
+| epoch   1 |   200/ 3631 batches | lr 20.00 | ms/batch 252.59 | loss  6.87 | perplexity   967.73
+| epoch   1 |   400/ 3631 batches | lr 20.00 | ms/batch 253.12 | loss  6.10 | perplexity   443.81
+| epoch   1 |   600/ 3631 batches | lr 20.00 | ms/batch 251.30 | loss  5.83 | perplexity   342.00
+| epoch   1 |   800/ 3631 batches | lr 20.00 | ms/batch 252.90 | loss  5.61 | perplexity   273.06
+| epoch   1 |  1000/ 3631 batches | lr 20.00 | ms/batch 254.30 | loss  5.62 | perplexity   276.25
+| epoch   1 |  1200/ 3631 batches | lr 20.00 | ms/batch 253.03 | loss  5.55 | perplexity   256.58
+| epoch   1 |  1400/ 3631 batches | lr 20.00 | ms/batch 252.89 | loss  5.45 | perplexity   233.31
+| epoch   1 |  1600/ 3631 batches | lr 20.00 | ms/batch 253.63 | loss  5.43 | perplexity   229.27
+| epoch   1 |  1800/ 3631 batches | lr 20.00 | ms/batch 251.32 | loss  5.30 | perplexity   199.66
+| epoch   1 |  2000/ 3631 batches | lr 20.00 | ms/batch 253.97 | loss  5.26 | perplexity   193.28
+| epoch   1 |  2200/ 3631 batches | lr 20.00 | ms/batch 252.75 | loss  5.33 | perplexity   206.06
+| epoch   1 |  2400/ 3631 batches | lr 20.00 | ms/batch 253.00 | loss  5.21 | perplexity   182.99
+| epoch   1 |  2600/ 3631 batches | lr 20.00 | ms/batch 253.16 | loss  5.08 | perplexity   161.01
+| epoch   1 |  2800/ 3631 batches | lr 20.00 | ms/batch 255.23 | loss  5.20 | perplexity   181.80
+| epoch   1 |  3000/ 3631 batches | lr 20.00 | ms/batch 256.94 | loss  5.20 | perplexity   181.17
+| epoch   1 |  3200/ 3631 batches | lr 20.00 | ms/batch 255.69 | loss  5.13 | perplexity   168.26
+| epoch   1 |  3400/ 3631 batches | lr 20.00 | ms/batch 253.00 | loss  5.18 | perplexity   178.35
+| epoch   1 |  3600/ 3631 batches | lr 20.00 | ms/batch 253.34 | loss  5.22 | perplexity   184.49
+-----------------------------------------------------------------------------------------
+| end of epoch   1 | time: 947.97s | valid loss  5.12 | valid perplexity   167.60
+-----------------------------------------------------------------------------------------
+| epoch   2 |   200/ 3631 batches | lr 20.00 | ms/batch 253.38 | loss  5.26 | perplexity   191.59
+| epoch   2 |   400/ 3631 batches | lr 20.00 | ms/batch 256.00 | loss  5.05 | perplexity   155.55
+| epoch   2 |   600/ 3631 batches | lr 20.00 | ms/batch 256.54 | loss  5.07 | perplexity   158.82
+| epoch   2 |   800/ 3631 batches | lr 20.00 | ms/batch 257.28 | loss  4.95 | perplexity   141.12
+| epoch   2 |  1000/ 3631 batches | lr 20.00 | ms/batch 264.38 | loss  5.07 | perplexity   159.67
+| epoch   2 |  1200/ 3631 batches | lr 20.00 | ms/batch 264.94 | loss  5.04 | perplexity   154.29
+| epoch   2 |  1400/ 3631 batches | lr 20.00 | ms/batch 262.68 | loss  5.00 | perplexity   147.91
+| epoch   2 |  1600/ 3631 batches | lr 20.00 | ms/batch 262.31 | loss  5.05 | perplexity   156.76
+| epoch   2 |  1800/ 3631 batches | lr 20.00 | ms/batch 263.83 | loss  4.92 | perplexity   137.07
+| epoch   2 |  2000/ 3631 batches | lr 20.00 | ms/batch 261.52 | loss  4.87 | perplexity   130.38
+| epoch   2 |  2200/ 3631 batches | lr 20.00 | ms/batch 262.71 | loss  4.99 | perplexity   147.39
+| epoch   2 |  2400/ 3631 batches | lr 20.00 | ms/batch 261.91 | loss  4.89 | perplexity   133.29
+| epoch   2 |  2600/ 3631 batches | lr 20.00 | ms/batch 261.41 | loss  4.74 | perplexity   114.09
+| epoch   2 |  2800/ 3631 batches | lr 20.00 | ms/batch 260.13 | loss  4.91 | perplexity   135.08
+| epoch   2 |  3000/ 3631 batches | lr 20.00 | ms/batch 264.46 | loss  4.91 | perplexity   135.59
+| epoch   2 |  3200/ 3631 batches | lr 20.00 | ms/batch 269.20 | loss  4.87 | perplexity   129.89
+| epoch   2 |  3400/ 3631 batches | lr 20.00 | ms/batch 269.51 | loss  4.92 | perplexity   136.86
+| epoch   2 |  3600/ 3631 batches | lr 20.00 | ms/batch 264.54 | loss  4.98 | perplexity   145.73
+-----------------------------------------------------------------------------------------
+| end of epoch   2 | time: 979.60s | valid loss  4.96 | valid perplexity   142.12
+-----------------------------------------------------------------------------------------
+=========================================================================================
+| End of training | training time: 1927.72s |test loss  4.93 | test perplexity   138.22
+=========================================================================================
+Namespace(batch_size=32, bptt=8, bptt_multiplier=2, clip=0.25, data='./data/ptb', dropout=0.2, emsize=256, epochs=2, log_interval=200, lr=20, model='LSTM', nhid=256, nlayers=1, save='model.pt', seed=1111, tied=True)
+bptt is:  8
+| epoch   1 |   200/ 3631 batches | lr 20.00 | ms/batch 266.03 | loss  6.87 | perplexity   967.73
+| epoch   1 |   400/ 3631 batches | lr 20.00 | ms/batch 260.36 | loss  6.10 | perplexity   443.81
+| epoch   1 |   600/ 3631 batches | lr 20.00 | ms/batch 262.05 | loss  5.83 | perplexity   342.00
+| epoch   1 |   800/ 3631 batches | lr 20.00 | ms/batch 263.26 | loss  5.61 | perplexity   273.06
+| epoch   1 |  1000/ 3631 batches | lr 20.00 | ms/batch 263.04 | loss  5.62 | perplexity   276.25
+| epoch   1 |  1200/ 3631 batches | lr 20.00 | ms/batch 265.14 | loss  5.55 | perplexity   256.58
+| epoch   1 |  1400/ 3631 batches | lr 20.00 | ms/batch 268.72 | loss  5.45 | perplexity   233.31
+| epoch   1 |  1600/ 3631 batches | lr 20.00 | ms/batch 266.80 | loss  5.43 | perplexity   229.27
+| epoch   1 |  1800/ 3631 batches | lr 20.00 | ms/batch 268.38 | loss  5.30 | perplexity   199.66
+| epoch   1 |  2000/ 3631 batches | lr 20.00 | ms/batch 268.27 | loss  5.26 | perplexity   193.28
+| epoch   1 |  2200/ 3631 batches | lr 20.00 | ms/batch 266.51 | loss  5.33 | perplexity   206.06
+| epoch   1 |  2400/ 3631 batches | lr 20.00 | ms/batch 266.00 | loss  5.21 | perplexity   182.99
+| epoch   1 |  2600/ 3631 batches | lr 20.00 | ms/batch 264.15 | loss  5.08 | perplexity   161.01
+| epoch   1 |  2800/ 3631 batches | lr 20.00 | ms/batch 266.67 | loss  5.20 | perplexity   181.80
+| epoch   1 |  3000/ 3631 batches | lr 20.00 | ms/batch 266.71 | loss  5.20 | perplexity   181.17
+| epoch   1 |  3200/ 3631 batches | lr 20.00 | ms/batch 268.46 | loss  5.13 | perplexity   168.26
+| epoch   1 |  3400/ 3631 batches | lr 20.00 | ms/batch 267.64 | loss  5.18 | perplexity   178.35
+| epoch   1 |  3600/ 3631 batches | lr 20.00 | ms/batch 269.94 | loss  5.22 | perplexity   184.49
+-----------------------------------------------------------------------------------------
+| end of epoch   1 | time: 994.36s | valid loss  5.12 | valid perplexity   167.60
+-----------------------------------------------------------------------------------------
+bptt is:  16
+| epoch   2 |   200/ 1815 batches | lr 20.00 | ms/batch 505.44 | loss  5.13 | perplexity   168.44
+| epoch   2 |   400/ 1815 batches | lr 20.00 | ms/batch 498.04 | loss  4.94 | perplexity   140.30
+| epoch   2 |   600/ 1815 batches | lr 20.00 | ms/batch 488.35 | loss  4.98 | perplexity   145.28
+| epoch   2 |   800/ 1815 batches | lr 20.00 | ms/batch 491.93 | loss  4.94 | perplexity   139.11
+| epoch   2 |  1000/ 1815 batches | lr 20.00 | ms/batch 492.48 | loss  4.79 | perplexity   120.85
+| epoch   2 |  1200/ 1815 batches | lr 20.00 | ms/batch 494.92 | loss  4.84 | perplexity   126.26
+| epoch   2 |  1400/ 1815 batches | lr 20.00 | ms/batch 498.33 | loss  4.72 | perplexity   111.70
+| epoch   2 |  1600/ 1815 batches | lr 20.00 | ms/batch 501.21 | loss  4.78 | perplexity   118.62
+| epoch   2 |  1800/ 1815 batches | lr 20.00 | ms/batch 492.41 | loss  4.83 | perplexity   124.62
+-----------------------------------------------------------------------------------------
+| end of epoch   2 | time: 927.04s | valid loss  4.88 | valid perplexity   131.82
+-----------------------------------------------------------------------------------------
+=========================================================================================
+| End of training | training time: 1921.54s |test loss  4.85 | test perplexity   127.58
+=========================================================================================
+Namespace(batch_size=32, bptt=8, bptt_multiplier=1, clip=0.25, data='./data/ptb', dropout=0.0, emsize=256, epochs=2, log_interval=200, lr=20, model='LSTM', nhid=256, nlayers=1, save='model.pt', seed=1111, tied=True)
+| epoch   1 |   200/ 3631 batches | lr 20.00 | ms/batch 255.01 | loss  6.86 | perplexity   956.99
+| epoch   1 |   400/ 3631 batches | lr 20.00 | ms/batch 254.67 | loss  6.06 | perplexity   430.39
+| epoch   1 |   600/ 3631 batches | lr 20.00 | ms/batch 254.21 | loss  5.78 | perplexity   324.08
+| epoch   1 |   800/ 3631 batches | lr 20.00 | ms/batch 254.24 | loss  5.55 | perplexity   257.00
+| epoch   1 |  1000/ 3631 batches | lr 20.00 | ms/batch 249.62 | loss  5.56 | perplexity   259.02
+| epoch   1 |  1200/ 3631 batches | lr 20.00 | ms/batch 251.26 | loss  5.48 | perplexity   238.92
+| epoch   1 |  1400/ 3631 batches | lr 20.00 | ms/batch 251.39 | loss  5.38 | perplexity   216.56
+| epoch   1 |  1600/ 3631 batches | lr 20.00 | ms/batch 252.10 | loss  5.36 | perplexity   213.71
+| epoch   1 |  1800/ 3631 batches | lr 20.00 | ms/batch 250.99 | loss  5.21 | perplexity   182.74
+| epoch   1 |  2000/ 3631 batches | lr 20.00 | ms/batch 252.25 | loss  5.16 | perplexity   174.78
+| epoch   1 |  2200/ 3631 batches | lr 20.00 | ms/batch 257.19 | loss  5.23 | perplexity   185.98
+| epoch   1 |  2400/ 3631 batches | lr 20.00 | ms/batch 251.85 | loss  5.10 | perplexity   164.67
+| epoch   1 |  2600/ 3631 batches | lr 20.00 | ms/batch 253.15 | loss  4.96 | perplexity   143.12
+| epoch   1 |  2800/ 3631 batches | lr 20.00 | ms/batch 253.33 | loss  5.09 | perplexity   162.50
+| epoch   1 |  3000/ 3631 batches | lr 20.00 | ms/batch 260.08 | loss  5.08 | perplexity   160.54
+| epoch   1 |  3200/ 3631 batches | lr 20.00 | ms/batch 260.64 | loss  5.01 | perplexity   149.67
+| epoch   1 |  3400/ 3631 batches | lr 20.00 | ms/batch 255.54 | loss  5.06 | perplexity   156.87
+| epoch   1 |  3600/ 3631 batches | lr 20.00 | ms/batch 252.82 | loss  5.09 | perplexity   161.64
+-----------------------------------------------------------------------------------------
+| end of epoch   1 | time: 949.64s | valid loss  5.10 | valid perplexity   164.28
+-----------------------------------------------------------------------------------------
+| epoch   2 |   200/ 3631 batches | lr 20.00 | ms/batch 251.36 | loss  5.12 | perplexity   167.36
+| epoch   2 |   400/ 3631 batches | lr 20.00 | ms/batch 250.70 | loss  4.90 | perplexity   134.39
+| epoch   2 |   600/ 3631 batches | lr 20.00 | ms/batch 251.36 | loss  4.92 | perplexity   136.72
+| epoch   2 |   800/ 3631 batches | lr 20.00 | ms/batch 253.44 | loss  4.78 | perplexity   119.40
+| epoch   2 |  1000/ 3631 batches | lr 20.00 | ms/batch 252.93 | loss  4.92 | perplexity   136.49
+| epoch   2 |  1200/ 3631 batches | lr 20.00 | ms/batch 255.09 | loss  4.88 | perplexity   131.82
+| epoch   2 |  1400/ 3631 batches | lr 20.00 | ms/batch 252.82 | loss  4.83 | perplexity   125.67
+| epoch   2 |  1600/ 3631 batches | lr 20.00 | ms/batch 253.49 | loss  4.87 | perplexity   130.33
+| epoch   2 |  1800/ 3631 batches | lr 20.00 | ms/batch 252.16 | loss  4.73 | perplexity   113.32
+| epoch   2 |  2000/ 3631 batches | lr 20.00 | ms/batch 252.17 | loss  4.67 | perplexity   107.06
+| epoch   2 |  2200/ 3631 batches | lr 20.00 | ms/batch 251.56 | loss  4.79 | perplexity   120.60
+| epoch   2 |  2400/ 3631 batches | lr 20.00 | ms/batch 251.12 | loss  4.69 | perplexity   108.41
+| epoch   2 |  2600/ 3631 batches | lr 20.00 | ms/batch 252.50 | loss  4.51 | perplexity    90.84
+| epoch   2 |  2800/ 3631 batches | lr 20.00 | ms/batch 252.82 | loss  4.69 | perplexity   108.37
+| epoch   2 |  3000/ 3631 batches | lr 20.00 | ms/batch 252.92 | loss  4.67 | perplexity   107.15
+| epoch   2 |  3200/ 3631 batches | lr 20.00 | ms/batch 252.31 | loss  4.65 | perplexity   104.78
+| epoch   2 |  3400/ 3631 batches | lr 20.00 | ms/batch 251.38 | loss  4.69 | perplexity   109.10
+| epoch   2 |  3600/ 3631 batches | lr 20.00 | ms/batch 251.83 | loss  4.75 | perplexity   115.29
+-----------------------------------------------------------------------------------------
+| end of epoch   2 | time: 943.99s | valid loss  4.96 | valid perplexity   142.22
+-----------------------------------------------------------------------------------------
+=========================================================================================
+| End of training | training time: 1893.76s |test loss  4.92 | test perplexity   136.79
+=========================================================================================
