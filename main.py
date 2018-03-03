@@ -40,7 +40,7 @@ parser.add_argument('--batch_size', type=int, default=32, metavar='N',
                     help='batch size')
 parser.add_argument('--bptt', type=int, default=35,
                     help='sequence length')
-parser.add_argument('--bptt_multiplier', type=float, default=1,
+parser.add_argument('--bptt_multiplier', type=int, default=1,
                     help='factor to increase sequence length')
 parser.add_argument('--dropout', type=float, default=0.2,
                     help='dropout applied to layers (0 = no dropout)')
