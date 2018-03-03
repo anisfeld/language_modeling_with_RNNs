@@ -40,7 +40,7 @@ parser.add_argument('--batch_size', type=int, default=32, metavar='N',
                     help='batch size')
 parser.add_argument('--bptt', type=int, default=35,
                     help='sequence length')
-parser.add_argument('--bptt_multiplier', type=int, default=1,
+parser.add_argument('--bptt_multiplier', type=float, default=1,
                     help='factor to increase sequence length')
 parser.add_argument('--dropout', type=float, default=0.2,
                     help='dropout applied to layers (0 = no dropout)')
@@ -219,9 +219,9 @@ try:
 except KeyboardInterrupt:
     print('-' * 89)
     print('Exiting from training early')
-print('| end of all epochs | time: {:5.2f}s | valid loss {:5.2f} | '
-                'valid perplexity {:8.2f}'.format((time.time() - train_start_time),
-                                           val_loss, math.exp(val_loss)))
+
+total_time = (time.time() - train_start_time)
+
 # Load the best saved model.
 with open(args.save, 'rb') as f:
     model = torch.load(f)
@@ -229,6 +229,6 @@ with open(args.save, 'rb') as f:
 # Run on test data.
 test_loss = evaluate(test_data)
 print('=' * 89)
-print('| End of training | test loss {:5.2f} | test perplexity {:8.2f}'.format(
+print('| End of training | training time: {:5.2f}s |test loss {:5.2f} | test perplexity {:8.2f}'.format(total_time,
     test_loss, math.exp(test_loss)))
 print('=' * 89)
