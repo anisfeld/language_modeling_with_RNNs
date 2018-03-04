@@ -40,10 +40,12 @@ parser.add_argument('--batch_size', type=int, default=32, metavar='N',
                     help='batch size')
 parser.add_argument('--bptt', type=int, default=35,
                     help='sequence length')
-parser.add_argument('--bptt_multiplier', type=int, default=1,
+parser.add_argument('--bptt_multiplier', type=float, default=1,
                     help='factor to increase sequence length')
 parser.add_argument('--dropout', type=float, default=0.2,
                     help='dropout applied to layers (0 = no dropout)')
+parser.add_argument('--change_dropout', type=int, default=10000,
+                    help='after n epochs increase dropout rate')
 parser.add_argument('--tied', action='store_true',
                     help='tie the word embedding and softmax weights')
 parser.add_argument('--seed', type=int, default=1111,
@@ -189,7 +191,8 @@ lr = args.lr
 best_val_loss = None
 
 
-change_bptt = True # SET GLOBAL
+change_bptt = True
+change_dropout = args.change_dropout # SET GLOBAL
 # At any point you can hit Ctrl + C to break out of training early.
 try:
     #optimizer = optim.Adam(model.parameters(), lr=lr, weight_decay=5e-10)
@@ -197,6 +200,9 @@ try:
     for epoch in range(1, args.epochs+1):
         #lr = lr_list[epoch - 1]
         #lr = lr/2
+        if args.change_dropout == epoch:
+            args.dropout += .2
+            print("dropout is now: ", args.bptt)
         if args.bptt_multiplier != 1:
             print("bptt is: ", args.bptt)
         epoch_start_time = time.time()
