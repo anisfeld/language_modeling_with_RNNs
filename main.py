@@ -202,13 +202,13 @@ try:
         #lr = lr/2
         if args.change_dropout == epoch:
             args.dropout += .2
-            print("dropout is now: ", args.bptt)
+            print("dropout is now: ", args.dropout)
         if args.bptt_multiplier != 1:
             print("bptt is: ", args.bptt)
         epoch_start_time = time.time()
         train()
         val_loss = evaluate(val_data)
-        args.bptt = args.bptt_multiplier * args.bptt
+        args.bptt = int(args.bptt_multiplier * args.bptt)
         print('-' * 89)
         print('| end of epoch {:3d} | time: {:5.2f}s | valid loss {:5.2f} | '
                 'valid perplexity {:8.2f}'.format(epoch, (time.time() - epoch_start_time),
