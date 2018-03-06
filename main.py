@@ -8,16 +8,7 @@ from torch.autograd import Variable
 import torch.optim as optim
 import data
 import model
-
-
-
-"""Our best performing non-regularized LSTM has two hidden layers with 200 units per layer, 
-and its weights are initialized uniformly in [−0.1, 0.1]. We train it for 4 epochs with 
-a learning rate of 1 and then we decrease the learning rate by a factor of 2 after each 
-epoch, for a total of 13 training epochs. The size of each minibatch is 20, and we unroll 
-the network for 20 steps."""
-#python3 main.py --model 'LSTM' --nlayers 2 --nhid 200 --epochs 5 --batch_size 20 --dropout 0.5 --bptt 20 --emsize 20 --clip 5 --lr 1 
-
+#from model import AdaptiveLoss
 
 parser = argparse.ArgumentParser(description='PTB RNN/LSTM Language Model: Main Function')
 parser.add_argument('--data', type=str, default='./data/ptb',
@@ -54,9 +45,13 @@ parser.add_argument('--log_interval', type=int, default=200, metavar='N',
                     help='report interval')
 parser.add_argument('--save', type=str,  default='model.pt',
                     help='path to save the final model')
+parser.add_argument('--adasoft', action='store_true',
+                    help='use adaptive softmax')
+parser.add_argument('--cutoff', type=str, default="500,2000")
+
 args = parser.parse_args()
 
-
+adam = False
 # Set the random seed manually for reproducibility.
 torch.manual_seed(args.seed)
 
@@ -77,7 +72,7 @@ corpus = data.Corpus(args.data)
 # These columns are treated as independent by the model, which means that the
 # dependence of e. g. 'g' on 'f' can not be learned, but allows more efficient
 # batch processing.
-print(args)
+
 def batchify(data, bsz):
     # Work out how cleanly we can divide the dataset into bsz parts.
     nbatch = data.size(0) // bsz
@@ -91,14 +86,24 @@ eval_batch_size = 10
 train_data = batchify(corpus.train, args.batch_size)
 val_data = batchify(corpus.valid, eval_batch_size)
 test_data = batchify(corpus.test, eval_batch_size)
-
 ###############################################################################
 # Build the model
 ###############################################################################
-
 ntokens = len(corpus.dictionary)
-model = model.RNNModel(args.model, ntokens, args.emsize, args.nhid, args.nlayers, args.dropout, args.tied)
-criterion = nn.CrossEntropyLoss()
+print(args, ", ntokens = {}".format(ntokens))
+
+if args.adasoft:
+    cutoff = [int(c) for c in args.cutoff.split(",")]
+    model = model.RNNModel(args.model, ntokens, args.emsize, args.nhid, args.nlayers, \
+                            args.dropout, args.tied, cutoff, args.adasoft)
+    criterion = model.AdaptiveLoss([*cutoff, ntokens + 1])
+
+else:
+    model = model.RNNModel(args.model, ntokens, args.emsize, args.nhid, args.nlayers, \
+                            args.dropout, args.tied)
+    criterion = nn.CrossEntropyLoss()
+
+
 
 ###############################################################################
 # Training code
@@ -135,42 +140,66 @@ def evaluate(data_source):
     total_loss = 0
     ntokens = len(corpus.dictionary)
     hidden = model.init_hidden(eval_batch_size)
+
+    if args.adasoft:
+        eval_criterion = nn.NLLLoss()
+    else:
+        eval_criterion = nn.CrossEntropyLoss()
+
+
     for i in range(0, data_source.size(0) - 1, args.bptt):
         data, targets = get_batch(data_source, i, evaluation=True)
-        output, hidden = model(data, hidden)
-        output_flat = output.view(-1, ntokens)
-        total_loss += len(data) * criterion(output_flat, targets).data
+        
+
+        if args.adasoft:
+            output, hidden = model.log_prob(data, hidden)
+            output = Variable(output)
+        else:
+            output, hidden = model(data, hidden)
+            output = output.view(-1, ntokens)
+
+        total_loss +=  len(data) * eval_criterion(output, targets).data
         hidden = repackage_hidden(hidden)
+    
     return total_loss[0] / len(data_source)
 
 
 def train():
+    # torch.set_num_threads(1)
     # Turn on training mode which enables dropout.
-    torch.set_num_threads(1)
     model.train()
     total_loss = 0
     start_time = time.time()
     ntokens = len(corpus.dictionary)
     hidden = model.init_hidden(args.batch_size)
     
-
+    
     for batch, i in enumerate(range(0, train_data.size(0) - 1, args.bptt)):
         data, targets = get_batch(train_data, i)
         # Starting each batch, we detach the hidden state from how it was previously produced.
         # If we didn't, the model would try backpropagating all the way to start of the dataset.
         hidden = repackage_hidden(hidden)
         model.zero_grad()
-        output, hidden = model(data, hidden)
-        loss = criterion(output.view(-1, ntokens), targets)
+        
+        if args.adasoft:
+            output, hidden = model(data, hidden, targets)
+            loss = criterion(output, targets)
+
+        else:
+            output, hidden = model(data, hidden) 
+            loss = criterion(output.view(-1, ntokens), targets)
+
         loss.backward()
 
         # `clip_grad_norm` helps prevent the exploding gradient problem in RNNs / LSTMs.
         torch.nn.utils.clip_grad_norm(model.parameters(), args.clip)
-        for p in model.parameters():
-            p.data.add_(-lr, p.grad.data)
-        # optimizer.step()
-
-
+        
+        if adam:
+            optimizer.step()
+        else:
+            for p in model.parameters():
+                p.data.add_(-lr, p.grad.data)
+        
         total_loss += loss.data
 
         if batch % args.log_interval == 0 and batch > 0:
@@ -184,29 +213,25 @@ def train():
             start_time = time.time()
 
 # Loop over epochs.
-
-#lr_list = [22 , 20, 17, 17, 14]
 lr = args.lr
-
 best_val_loss = None
-
-
-change_bptt = True
-change_dropout = args.change_dropout # SET GLOBAL
 # At any point you can hit Ctrl + C to break out of training early.
 try:
-    #optimizer = optim.Adam(model.parameters(), lr=lr, weight_decay=5e-10)
+    if adam:
+        optimizer = optim.Adam(model.parameters(), lr=lr, weight_decay=0)
     train_start_time = time.time()
     for epoch in range(1, args.epochs+1):
-        #lr = lr_list[epoch - 1]
-        #lr = lr/2
-        if args.change_dropout == epoch:
-            args.dropout += .2
-            print("dropout is now: ", args.dropout)
+
+        # if args.change_dropout == epoch:
+        #     args.dropout += .2
+        #     print("dropout is now: ", args.dropout)
+        
         if args.bptt_multiplier != 1:
             print("bptt is: ", args.bptt)
+        
         epoch_start_time = time.time()
         train()
+
         val_loss = evaluate(val_data)
         args.bptt = int(args.bptt_multiplier * args.bptt)
         print('-' * 89)
