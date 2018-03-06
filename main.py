@@ -8,7 +8,7 @@ from torch.autograd import Variable
 import torch.optim as optim
 import data
 import model
-#from model import AdaptiveLoss
+from model import AdaptiveLoss
 
 parser = argparse.ArgumentParser(description='PTB RNN/LSTM Language Model: Main Function')
 parser.add_argument('--data', type=str, default='./data/ptb',
@@ -59,7 +59,9 @@ torch.manual_seed(args.seed)
 # Load data
 ###############################################################################
 
-corpus = data.Corpus(args.data)
+#corpus = data.Corpus(args.data)
+corpus = data.Corpus2(args.data)
+#import pdb; pdb.set_trace()
 
 # Starting from sequential data, batchify arranges the dataset into columns.
 # For instance, with the alphabet as the sequence and batch size 4, we'd get
@@ -96,7 +98,7 @@ if args.adasoft:
     cutoff = [int(c) for c in args.cutoff.split(",")]
     model = model.RNNModel(args.model, ntokens, args.emsize, args.nhid, args.nlayers, \
                             args.dropout, args.tied, cutoff, args.adasoft)
-    criterion = model.AdaptiveLoss([*cutoff, ntokens + 1])
+    criterion = AdaptiveLoss([*cutoff, ntokens + 1])
 
 else:
     model = model.RNNModel(args.model, ntokens, args.emsize, args.nhid, args.nlayers, \
