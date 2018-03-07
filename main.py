@@ -279,9 +279,8 @@ meta_data["test_ppl"] = math.exp(test_loss)
 print(meta_data)
 
 import pandas as pd
-import pdb; pdb.set_trace()
 if args.save != 'model.pt':
-    name = args.save
+    name = args.save.replace(".pt","")
 else:
     name = str(time.time())
 pd.DataFrame(meta_data, index=[name]).to_csv(name + ".csv")
