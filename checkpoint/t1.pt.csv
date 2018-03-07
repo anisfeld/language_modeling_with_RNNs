@@ -1,0 +1,2 @@
+,adam,adasoft,batch_size,bptt,bptt_multiplier,change_dropout,clip,cutoff,data,dropout,emsize,epochs,log_interval,lr,model,nhid,nlayers,save,seed,test_ppl,tied,train_time,val_ppl_1,val_ppl_2,val_ppl_3,val_ppl_4,val_ppl_5
+./checkpoint/t1.pt,False,True,32,256,2.0,10000,0.25,"96,587,4219",./data/ptb,0.2,256,5,200,20,LSTM,256,1,./checkpoint/t1.pt,1111,121.10752784025397,True,1290.5860133171082,215.18128947979628,159.27999329257992,154.1081027862758,138.26610887949,127.82886599326093

@@ -48,10 +48,14 @@ parser.add_argument('--save', type=str,  default='model.pt',
 parser.add_argument('--adasoft', action='store_true',
                     help='use adaptive softmax')
 parser.add_argument('--cutoff', type=str, default="500,2000")
+parser.add_argument('--adam', action='store_true',
+                    help='use adam')
 
 args = parser.parse_args()
+meta_data = vars(args)
+meta_data["train_time"] = 0
 
-adam = False
+adam = args.adam
 # Set the random seed manually for reproducibility.
 torch.manual_seed(args.seed)
 
@@ -171,11 +175,11 @@ def train():
     # Turn on training mode which enables dropout.
     model.train()
     total_loss = 0
-    start_time = time.time()
+   
     ntokens = len(corpus.dictionary)
     hidden = model.init_hidden(args.batch_size)
-    
-    
+
+    start_time = time.time()
     for batch, i in enumerate(range(0, train_data.size(0) - 1, args.bptt)):
         data, targets = get_batch(train_data, i)
         # Starting each batch, we detach the hidden state from how it was previously produced.
@@ -221,7 +225,7 @@ best_val_loss = None
 try:
     if adam:
         optimizer = optim.Adam(model.parameters(), lr=lr, weight_decay=0)
-    train_start_time = time.time()
+    
     for epoch in range(1, args.epochs+1):
 
         # if args.change_dropout == epoch:
@@ -236,11 +240,16 @@ try:
 
         val_loss = evaluate(val_data)
         args.bptt = int(args.bptt_multiplier * args.bptt)
+        train_time = time.time() - epoch_start_time
         print('-' * 89)
         print('| end of epoch {:3d} | time: {:5.2f}s | valid loss {:5.2f} | '
-                'valid perplexity {:8.2f}'.format(epoch, (time.time() - epoch_start_time),
+                'valid perplexity {:8.2f}'.format(epoch, (train_time),
                                            val_loss, math.exp(val_loss)))
         print('-' * 89)
+
+        meta_data["train_time"] += train_time
+        meta_data["val_ppl_" + str(epoch)] = math.exp(val_loss)
+
         # Save the model if the validation loss is the best we've seen so far.
         if not best_val_loss or val_loss < best_val_loss:
             with open(args.save, 'wb') as f:
@@ -253,7 +262,7 @@ except KeyboardInterrupt:
     print('-' * 89)
     print('Exiting from training early')
 
-total_time = (time.time() - train_start_time)
+
 
 # Load the best saved model.
 with open(args.save, 'rb') as f:
@@ -262,6 +271,23 @@ with open(args.save, 'rb') as f:
 # Run on test data.
 test_loss = evaluate(test_data)
 print('=' * 89)
-print('| End of training | training time: {:5.2f}s |test loss {:5.2f} | test perplexity {:8.2f}'.format(total_time,
+print('| End of training | training time: {:5.2f}s |test loss {:5.2f} | test perplexity {:8.2f}'.format(meta_data['train_time'],
     test_loss, math.exp(test_loss)))
 print('=' * 89)
+
+meta_data["test_ppl"] = math.exp(test_loss)
+print(meta_data)
+
+import pandas as pd
+import pdb; pdb.set_trace()
+if args.save != 'model.pt':
+    name = args.save
+else:
+    name = str(time.time())
+pd.DataFrame(meta_data, index=[name]).to_csv(name + ".csv")
+
+
+#return meta_data
+
+
+

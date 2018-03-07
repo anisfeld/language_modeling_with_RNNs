@@ -59,9 +59,8 @@ class Dictionary2(object):
         '''order vocab -- useful for adaptive softmax'''
         '''adapted from https://github.com/rosinality/adaptive-softmax-pytorch '''
         vocab = sorted(self.word2idx.items(), key=lambda x: x[1], reverse=True)
+
         self.word2idx = {k: id for id, (k, _) in enumerate(vocab)}
-
-
 
     def add_word(self, word):
         if word not in self.word2idx:
@@ -96,6 +95,7 @@ class Corpus2(object):
 
         if train:
             self.dictionary.counts_to_idx()
+
 
         # Tokenize file content
         with open(path, 'r') as f:
