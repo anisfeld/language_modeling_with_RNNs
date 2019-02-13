@@ -10,7 +10,7 @@ our challenge was to have an optimal combination of training speed and perplexit
 and scores better. For example, one winning algorithm trained the model in under 10 minutes and reached an acceptable level of perplexity
 and so won. This algorithm was one of several winners that took a more centerist approach.
 
-The base code for this challenge is available (here)[https://bitbucket.org/AlbertHaiWang/dl2018_final_project/src/5487ba2c42e085d3ea78cf6c2da02f897fe96643/README.md?at=master&fileviewer=file-view-default]
+The base code for this challenge is available [her](https://bitbucket.org/AlbertHaiWang/dl2018_final_project/src/5487ba2c42e085d3ea78cf6c2da02f897fe96643/README.md?at=master&fileviewer=file-view-default)
 and was written by Albert Hai Wang. The baseline model reached a perplexity of 128.55 in 1 hour.  
 
 ## Strategy 
@@ -20,9 +20,9 @@ do this assumes that any word in the vocabulary (the N distinct words in the dat
 We use the soft-max formula to calculate the probabilities. 
 
 This can be sped up significantly using a more clever approach to the softmax. In particular, I employed the adaptive softmax from 
-(Grave, Joulin, Cissé, Grangier, and Jégou)[https://arxiv.org/abs/1609.04309]. The key idea is to divide the vocabulary into clusters
+[Grave, Joulin, Cissé, Grangier, and Jégou](https://arxiv.org/abs/1609.04309). The key idea is to divide the vocabulary into clusters
 based on how frequently they appear in the dataset, and use a heirarchical structure. In the top level of the heirarchy, we have the most 
-common words, and pointers to the other clusters (See fig 3 in the paper). Because our data follows (Zipf's law)[https://simple.wikipedia.org/wiki/Zipf%27s_law],
+common words, and pointers to the other clusters (See fig 3 in the paper). Because our data follows [Zipf's law](https://simple.wikipedia.org/wiki/Zipf%27s_law),
 the most common words will be "caught" by our first soft-max reducing the compute time dramatically.
 
 In addition to employing the soft max, a key to success was completing a grid search with a wide range of tuning parameters. 
