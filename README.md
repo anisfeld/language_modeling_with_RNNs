@@ -10,7 +10,7 @@ our challenge was to have an optimal combination of training speed and perplexit
 and scores better. For example, one winning algorithm trained the model in under 10 minutes and reached an acceptable level of perplexity
 and so won. This algorithm was one of several winners that took a more centerist approach.
 
-The base code for this challenge is available [her](https://bitbucket.org/AlbertHaiWang/dl2018_final_project/src/5487ba2c42e085d3ea78cf6c2da02f897fe96643/README.md?at=master&fileviewer=file-view-default)
+The base code for this challenge is available [here](https://bitbucket.org/AlbertHaiWang/dl2018_final_project/src/5487ba2c42e085d3ea78cf6c2da02f897fe96643/README.md?at=master&fileviewer=file-view-default)
 and was written by Albert Hai Wang. The baseline model reached a perplexity of 128.55 in 1 hour.  
 
 ## Strategy 
